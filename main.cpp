@@ -1,6 +1,24 @@
+#include <algorithm>
 #include <fstream>
-#include <ostream>
 #include <sstream>
+#include <array>
+#include <iostream>
+
+int calc(const std::string& str) {
+    std::array<int, 3> sides;
+    std::istringstream stream(str);
+    std::string token;
+
+    size_t i = 0;
+    while (std::getline(stream, token, 'x')) {
+        sides[i] = std::atoi(token.c_str());
+        i++;
+    }
+
+    int res = 2*sides[0]*sides[1] + 2*sides[1]*sides[2] + 2*sides[2]*sides[0];
+    std::sort(sides.begin(), sides.end());
+    return res + sides[0] * sides[1];
+}
 
 int main() {
     std::ifstream file("input");
@@ -8,8 +26,12 @@ int main() {
         throw std::runtime_error("Can't read input");
     }
 
-    std::ostringstream buffer;
-    buffer << file.rdbuf();
+    int res = 0;
+    std::string line;
+    while (std::getline(file, line)) {
+        res += calc(line);
+    }
 
-    std::string contents = buffer.str();
+    printf("final_res=%d\n", res);
 }
+
