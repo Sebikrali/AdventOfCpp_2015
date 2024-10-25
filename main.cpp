@@ -1,5 +1,15 @@
-#include <iostream>
+#include <fstream>
+#include <ostream>
+#include <sstream>
 
 int main() {
-    std::cout << "Merry Christmas" << std::endl;
+    std::ifstream file("input");
+    if (!file) {
+        throw std::runtime_error("Can't read input");
+    }
+
+    std::ostringstream buffer;
+    buffer << file.rdbuf();
+
+    std::string contents = buffer.str();
 }
