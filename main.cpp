@@ -15,9 +15,10 @@ int calc(const std::string& str) {
         i++;
     }
 
-    int res = 2*sides[0]*sides[1] + 2*sides[1]*sides[2] + 2*sides[2]*sides[0];
+    // For ribbon
     std::sort(sides.begin(), sides.end());
-    return res + sides[0] * sides[1];
+    int res = sides[0] * 2 + sides[1] * 2;
+    return res + (sides[0] * sides[1] * sides[2]);
 }
 
 int main() {
