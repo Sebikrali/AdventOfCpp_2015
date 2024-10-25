@@ -19,13 +19,19 @@ int main() {
     const char *raw = contents.c_str();
 
     int64_t sum = 0;
+    bool first = true;
+    int first_index = 0;
     for (int i = 0; i < contents.size() - 1; i++) {
         if (raw[i] == '(') {
             sum++;
         } else {
             sum--;
+            if (first && sum == -1) {
+                first_index = i + 1;
+                first = false;
+            }
         }
     }
 
-    std::cout << "sum: " << sum << std::endl;
+    std::cout << "first_index: " << first_index << std::endl;
 }
