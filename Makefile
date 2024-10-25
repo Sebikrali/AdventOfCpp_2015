@@ -1,10 +1,10 @@
 CFLAGS = -std=c++17 -O2
 LDFLAGS = 
 
-all: run
+all: merry
 
 run: merry
-	printf "\n" ; out/christmas
+	out/christmas
 
 merry: main.cpp
 	g++ $(CFLAGS) -o out/christmas $^ $(LDFLAGS)
