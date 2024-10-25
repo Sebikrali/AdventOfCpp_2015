@@ -4,7 +4,7 @@ LDFLAGS =
 all: run
 
 run: merry
-	printf "\n" ; out/christmas
+	out/christmas
 
 merry: main.cpp
 	g++ $(CFLAGS) -o out/christmas $^ $(LDFLAGS)

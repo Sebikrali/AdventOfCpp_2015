@@ -1,8 +1,8 @@
 # AdventOfCode 2015 - My C++ Solution
 
 ## Progress
-01 -  
-02 -  
+01 - **  
+02 - **   
 03 -  
 04 -  
 05 -  
